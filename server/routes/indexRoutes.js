@@ -3,7 +3,7 @@ const router = express.Router();
 
 const mainController = require('../controllers/mainController.js');
 
-// App Routes
+// Index Routes
 router.get('/', mainController.homepage);
 router.get('/about', mainController.about);
 

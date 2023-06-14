@@ -72,5 +72,28 @@ h6 {
   --bs-pagination-active-border-color: var(--bs-primary-rgb);
 }
 
-.home {
+/* Home */
+@media (min-width: 1200px) {
+  /* prettier-ignore */
+  .home {
+    background: 
+      url(../img/human-1.svg) left bottom no-repeat,
+      url(../img/human-2.svg) right bottom no-repeat,
+      url(../img/noise-bg.png) left top repeat,
+      var(--background-color);
+      ;
+  }
+}
+
+.home-title::before {
+  content: url(../img/stars.svg);
+  position: absolute;
+  left: -50px;
+  top: -30px;
+}
+.home-title::after {
+  content: url(../img/stars.svg);
+  position: absolute;
+  right: -50px;
+  bottom: -30px;
 }
