@@ -5,6 +5,7 @@ const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const passport = require('passport');
 const MongoStore = require('connect-mongo');
+const methodOverride = require('method-override');
 
 const connectDB = require('./server/config/db.js');
 const indexRouter = require('./server/routes/indexRoutes.js');
@@ -33,6 +34,8 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(methodOverride('_method'));
 
 // Connect to MONGODB
 connectDB();

@@ -11,7 +11,28 @@ exports.getNote = async (req, res) => {
     noteID: req.params.noteId,
     note,
     layout: '../views/layouts/dashboard',
+    locals: {
+      title: note.title,
+    },
   });
 };
 
-exports.createNote = async (req, res) => {};
+exports.updateNote = async (req, res) => {
+  try {
+    await Notes.findOneAndUpdate(
+      { _id: req.params.noteId },
+      {
+        title: req.body.title,
+        body: req.body.body,
+      },
+      {
+        runValidators: true,
+      }
+    ).where({ user: req.user.id });
+
+    res.redirect('/dashboard');
+  } catch (error) {
+    res.send('Something went wrong');
+    console.log(error);
+  }
+};
