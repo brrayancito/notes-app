@@ -47,7 +47,7 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.use('/', indexRouter);
-app.use('/dashboard', dashboardRouter);
+app.use('/', dashboardRouter);
 app.use('/', authRouter);
 
 // Handle 404

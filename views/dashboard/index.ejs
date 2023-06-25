@@ -10,7 +10,7 @@
       <% if (notes.length > 0) { notes.forEach(note => { %>
       <div class="col-sm-3 mb-4">
         <div class="card border-primary" style="min-height: 210px">
-          <a href="/dashboard/item/<%= note._id%>" class="card-body text-decoration-none">
+          <a href="/dashboard/note/<%= note._id%>" class="card-body text-decoration-none">
             <h5 class="card-title"><%= note.title %></h5>
             <p class="card-text"><%= note.body %></p>
           </a>
@@ -44,7 +44,7 @@
           <% } %>
         </ul>
       </nav>
-      } else { %>
+      <% } else { %>
       <div class="row">
         <div class="col-3">
           <img src="/img/human-3.svg" alt="Human poiting hand toward a create button" />
