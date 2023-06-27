@@ -13,4 +13,7 @@ router.get('/dashboard/note/:noteId', checkAuth.isLoggedIn, noteController.getNo
 router.put('/dashboard/note/:noteId', checkAuth.isLoggedIn, noteController.updateNote);
 router.delete('/dashboard/note-delete/:noteId', checkAuth.isLoggedIn, noteController.deleteNote);
 
+router.get('/dashboard/search', checkAuth.isLoggedIn, noteController.searchNote);
+router.post('/dashboard/search', checkAuth.isLoggedIn, noteController.searchNoteSubmit);
+
 module.exports = router;
