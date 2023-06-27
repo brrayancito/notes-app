@@ -42,10 +42,32 @@ exports.updateNote = async (req, res) => {
 //Delete Note
 exports.deleteNote = async (req, res) => {
   try {
-    console.log(req.params);
     await Notes.findByIdAndDelete(req.params.noteId).where({ user: req.user.id });
     res.redirect('/dashboard');
   } catch (error) {
     console.log(error);
   }
+};
+
+// Create Note
+exports.createNote = async (req, res) => {
+  try {
+    const note = await Notes.create({
+      title: req.body.title,
+      body: req.body.body,
+      user: req.user.id,
+    });
+
+    res.redirect('/dashboard');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//Add Note View
+exports.addNoteView = async (req, res) => {
+  res.render('dashboard/add-note', {
+    title: 'Add Note',
+    layout: '../views/layouts/dashboard',
+  });
 };
