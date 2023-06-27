@@ -1,5 +1,6 @@
 const Notes = require('../models/noteModel.js');
 
+// Get Note
 exports.getNote = async (req, res) => {
   const note = await Notes.findById(req.params.noteId).where({ user: req.user.id }).lean();
 
@@ -17,6 +18,7 @@ exports.getNote = async (req, res) => {
   });
 };
 
+//Update Note
 exports.updateNote = async (req, res) => {
   try {
     await Notes.findOneAndUpdate(
@@ -33,6 +35,17 @@ exports.updateNote = async (req, res) => {
     res.redirect('/dashboard');
   } catch (error) {
     res.send('Something went wrong');
+    console.log(error);
+  }
+};
+
+//Delete Note
+exports.deleteNote = async (req, res) => {
+  try {
+    console.log(req.params);
+    await Notes.findByIdAndDelete(req.params.noteId).where({ user: req.user.id });
+    res.redirect('/dashboard');
+  } catch (error) {
     console.log(error);
   }
 };

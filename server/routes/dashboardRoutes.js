@@ -9,5 +9,6 @@ const noteController = require('../controllers/noteController.js');
 router.get('/dashboard', checkAuth.isLoggedIn, dashboardController.dashboard);
 router.get('/dashboard/note/:noteId', checkAuth.isLoggedIn, noteController.getNote);
 router.put('/dashboard/note/:noteId', checkAuth.isLoggedIn, noteController.updateNote);
+router.delete('/dashboard/note-delete/:noteId', checkAuth.isLoggedIn, noteController.deleteNote);
 
 module.exports = router;
