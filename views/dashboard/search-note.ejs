@@ -3,7 +3,7 @@
     <!-- prettier-ignore -->
     <% if (searchResults != '') { %>
            <% searchResults.forEach((note, index) => { %>
-    <a href="/dashboard/note/<%= note._id %>">
+    <a class="border border-primary rounded mb-1" href="/dashboard/note/<%= note._id %>">
       <h4><%= note.title %></h4>
     </a>
     <% }) %> <% } else { %>

@@ -26,6 +26,7 @@ exports.updateNote = async (req, res) => {
       {
         title: req.body.title,
         body: req.body.body,
+        updatedAt: Date.now(),
       },
       {
         runValidators: true,
@@ -56,9 +57,12 @@ exports.createNote = async (req, res) => {
       title: req.body.title,
       body: req.body.body,
       user: req.user.id,
+      updatedAt: Date.now(),
     });
 
-    res.redirect('/dashboard');
+    res.status(200).json({
+      status: 'success',
+    });
   } catch (error) {
     console.log(error);
   }
