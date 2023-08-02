@@ -11,7 +11,7 @@ if (formAddNote) {
     const body = document.getElementById('body').value
 
     try {
-      const response = await fetch('http://127.0.0.1:4000/dashboard/add-note', {
+      const response = await fetch('https://node-app-w1dw.onrender.com/dashboard/add-note', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
