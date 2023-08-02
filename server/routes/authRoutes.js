@@ -21,7 +21,6 @@ passport.use(
         lastName: profile.name.familyName,
         profileImage: profile.photos[0].value
       }
-      console.log(newUser)
 
       try {
         let user = await User.findOne({ googleId: profile.id })
