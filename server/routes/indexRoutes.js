@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-const mainController = require('../controllers/mainController.js');
+const mainController = require('../controllers/mainController.js')
 
 // Index Routes
-router.get('/', mainController.homepage);
-router.get('/about', mainController.about);
+router.get('/', mainController.homepage)
+router.get('/about', mainController.about)
 
-module.exports = router;
+module.exports = router
